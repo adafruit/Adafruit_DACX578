@@ -4,7 +4,7 @@ This is the Library for the Adafruit DAC7578.
 
 Tested and works great with the Adafruit DAC7578 Breakout Board
 
-[<img src="assets/board.png?raw=true" width="500px">](https://www.adafruit.com/products/6223)
+[<img src="assets/board.jpg?raw=true" width="500px">](https://www.adafruit.com/products/6223)
 
 This chip uses I2C to communicate, 2 pins are required to interface
 
