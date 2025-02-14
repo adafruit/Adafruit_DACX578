@@ -10,14 +10,16 @@
 #include <Arduino.h>
 
 /*!< Pre-shifted command defines (upper nibble) */
-#define DACX578_CMD_WRITE (0x0 << 4) ///< Write command
+#define DACX578_CMD_WRITE (0x0 << 4)  ///< Write command
 #define DACX578_CMD_UPDATE (0x1 << 4) ///< Update command
-#define DACX578_CMD_WRITE_GLOBAL_UPDATE (0x2 << 4) ///< Write and global update command
+#define DACX578_CMD_WRITE_GLOBAL_UPDATE                                        \
+  (0x2 << 4)                                ///< Write and global update command
 #define DACX578_CMD_WRITE_UPDATE (0x3 << 4) ///< Write and update command
-#define DACX578_CMD_POWERDOWN (0x4 << 4) ///< Power-down command
-#define DACX578_CMD_RESET (0x5 << 4) ///< Reset command
-#define DACX578_CMD_LDAC_MASK (0x6 << 4) ///< LDAC mask command
-#define DACX578_CMD_INTERNAL_REF (0x7 << 4) ///< Internal reference enable command
+#define DACX578_CMD_POWERDOWN (0x4 << 4)    ///< Power-down command
+#define DACX578_CMD_RESET (0x5 << 4)        ///< Reset command
+#define DACX578_CMD_LDAC_MASK (0x6 << 4)    ///< LDAC mask command
+#define DACX578_CMD_INTERNAL_REF                                               \
+  (0x7 << 4) ///< Internal reference enable command
 
 /*!< Broadcast channel for DACX578 */
 #define DACX578_CHANNEL_BROADCAST 0xF ///< Broadcast to all channels
