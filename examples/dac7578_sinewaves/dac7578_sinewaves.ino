@@ -3,13 +3,12 @@
 
 Adafruit_DACX578 dac(12); // Assuming 12-bit resolution
 
-const float frequencies[8] = {10, 20, 40, 80, 160, 320, 640, 1280}; // Hz
+const float frequencies[8] = {1, 2, 4, 8, 16, 32, 40, 50}; // Hz
 const uint16_t amplitude =
     2048;                     // Half of full scale for 12-bit DAC (0 to 4095)
 const uint16_t offset = 2048; // DC offset to keep sine wave positive
-const uint32_t sampleRate = 10000; // 10 kHz sample rate for smooth output
-const uint32_t period =
-    1000000 / sampleRate; // Period in microseconds per sample
+const uint32_t sampleRate = 370; // Measured actual rate
+const uint32_t period = 2700;    // Measured cycle time in microseconds
 
 void setup() {
   Serial.begin(115200);
@@ -33,16 +32,16 @@ void setup() {
 void loop() {
   static uint32_t lastTime = micros();
   static float phase[8] = {0};
+  uint32_t currentTime = micros();
 
-  if (micros() - lastTime >= period) {
-    lastTime += period;
+  if (currentTime - lastTime >= period) {
+    lastTime = currentTime; // Use actual time
 
     for (uint8_t channel = 0; channel < 8; channel++) {
-      // Compute the sine wave value
       float sineValue = sin(phase[channel]) * amplitude + offset;
       dac.writeAndUpdateChannelValue(channel, (uint16_t)sineValue);
 
-      // Update phase for the next sample
+      // Update phase using actual sample rate
       phase[channel] += 2 * M_PI * frequencies[channel] / sampleRate;
       if (phase[channel] >= 2 * M_PI) {
         phase[channel] -= 2 * M_PI;
