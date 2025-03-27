@@ -15,7 +15,7 @@ Adafruit invests time and resources providing this open source code, please supp
 
 # Contributing
 
-Contributions are welcome! Please read our [Code of Conduct](https://github.com/adafruit/Adafruit_DACX578/blob/master/CODE_OF_CONDUCT.md>)
+Contributions are welcome! Please read our [Code of Conduct](https://github.com/adafruit/Adafruit_DACX578/blob/main/code-of-conduct.md)
 before contributing to help this project stay welcoming.
 
 ## Documentation and doxygen
